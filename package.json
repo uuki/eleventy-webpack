@@ -33,6 +33,7 @@
     "date-fns": "^2.16.1",
     "eleventy-plugin-error-overlay": "^0.1.2",
     "html-minifier": "^4.0.0",
+    "import-glob-loader": "^1.1.0",
     "js-yaml": "^3.14.1",
     "markdown-it": "^12.0.3",
     "markdown-it-anchor": "^6.0.1",

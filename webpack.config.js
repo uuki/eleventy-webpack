@@ -35,10 +35,7 @@ module.exports = {
   ],
   ...(!isDev && {
     optimization: {
-      minimizer: [
-        new TerserPlugin(),
-        new CssMinimizerPlugin()
-      ]
+      minimizer: [new TerserPlugin(), new CssMinimizerPlugin()]
     }
   }),
   module: {
@@ -47,6 +44,11 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.s[c|a]ss$/,
+        enforce: 'pre',
+        loader: 'import-glob-loader'
       },
       {
         test: /\.s?css/i,

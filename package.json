@@ -8,9 +8,9 @@
   "scripts": {
     "clean": "rimraf _site",
     "format": "prettier --write **/*.{js,s?css,yml} !_site",
-    "start": "cross-env NODE_ENV=development npm-run-all -l clean --parallel start:*",
-    "start:webpack": "webpack --watch",
-    "start:eleventy": "eleventy --serve",
+    "dev": "cross-env NODE_ENV=development npm-run-all -l clean --parallel dev:*",
+    "dev:webpack": "webpack --watch",
+    "dev:eleventy": "eleventy --serve",
     "build": "cross-env NODE_ENV=production npm-run-all -l clean build:*",
     "build:webpack": "webpack",
     "build:eleventy": "eleventy",

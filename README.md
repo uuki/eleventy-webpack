@@ -35,7 +35,7 @@ Then you can:
 
 | Command               | Description                                   |
 | --------------------- | --------------------------------------------- |
-| **`npm run start`**   | Run your website on http://localhost:8080     |
+| **`npm run dev`**     | Run your website on http://localhost:8080     |
 | **`npm run build`**   | Build your production website inside `/_site` |
 | **`npm run format`**  | Run prettier on all filles except `/_site`    |
 | **`npm run analyze`** | Output info on your bundle size               |
@@ -43,7 +43,7 @@ Then you can:
 Make sure you use the correct node.js version:
 
 ```sh
-# with bash nvm 
+# with bash nvm
 nvm use `cat .nvmrc`
 # with windows nvm
 nvm use $(cat .nvmrc)
@@ -63,6 +63,7 @@ All shortcodes can be used inside `.md` or `.njk` files.
 <br>
 
 Any SVG added to `src/assets/icons` is bundled into a symbol sprite file and made available through this shortcode.
+
 ```html
 <!-- Assuming `src/assets/icons/github.svg` exist -->
 {% icon "github" %} Github icon
@@ -71,7 +72,9 @@ Any SVG added to `src/assets/icons` is bundled into a symbol sprite file and mad
   <use xlink:href="/assets/images/sprite.svg#github"></use>
 </svg>
 ```
-___
+
+---
+
 </details>
 
 <details>
@@ -85,9 +88,29 @@ Creates a WebP version of the image and the corresponding optimized JPEG / PNG. 
 {% image "image.jpeg", "Image alt" %}
 <!-- Will be rendered as -->
 <picture>
-  <source type="image/webp" srcset="/assets/images/678868de-320.webp 320w, /assets/images/678868de.webp 330w" sizes="90vw">
-  <source type="image/png" srcset="/assets/images/678868de-320.png 320w, /assets/images/678868de.png 330w" sizes="90vw">
-  <img loading="lazy" src="/assets/images/678868de.png" alt="Image alt" width="330" height="580">
+  <source
+    type="image/webp"
+    srcset="
+      /assets/images/678868de-320.webp 320w,
+      /assets/images/678868de.webp     330w
+    "
+    sizes="90vw"
+  />
+  <source
+    type="image/png"
+    srcset="
+      /assets/images/678868de-320.png 320w,
+      /assets/images/678868de.png     330w
+    "
+    sizes="90vw"
+  />
+  <img
+    loading="lazy"
+    src="/assets/images/678868de.png"
+    alt="Image alt"
+    width="330"
+    height="580"
+  />
 </picture>
 
 <!-- If a title is passed the shortcode will output a <figure> with <figcaption> -->
@@ -95,26 +118,56 @@ Creates a WebP version of the image and the corresponding optimized JPEG / PNG. 
 <!-- Will be rendered as -->
 <figure>
   <picture>
-    <source type="image/webp" srcset="/assets/images/678868de-320.webp 320w, /assets/images/678868de.webp 330w" sizes="90vw">
-    <source type="image/png" srcset="/assets/images/678868de-320.png 320w, /assets/images/678868de.png 330w" sizes="90vw">
-    <img loading="lazy" src="/assets/images/678868de.png" alt="Image alt" width="330" height="580">
+    <source
+      type="image/webp"
+      srcset="
+        /assets/images/678868de-320.webp 320w,
+        /assets/images/678868de.webp     330w
+      "
+      sizes="90vw"
+    />
+    <source
+      type="image/png"
+      srcset="
+        /assets/images/678868de-320.png 320w,
+        /assets/images/678868de.png     330w
+      "
+      sizes="90vw"
+    />
+    <img
+      loading="lazy"
+      src="/assets/images/678868de.png"
+      alt="Image alt"
+      width="330"
+      height="580"
+    />
   </picture>
   <figcaption>Image title</figcaption>
 </figure>
 
 <!-- Additional options -->
-{% image [100,100], "image.jpeg", "Image alt", "Image title", "my-class", false, "90vw" %}
+{% image [100,100], "image.jpeg", "Image alt", "Image title", "my-class", false,
+"90vw" %}
 <!-- Will be rendered as -->
 <figure class="fig-my-class">
   <picture>
-    <source type="image/webp" srcset="..." sizes="90vw">
-    <source type="image/png" srcset="..." sizes="90vw">
-    <img class="img-my-class" loading="eager" src="..." alt="Image alt" width="100" height="100">
+    <source type="image/webp" srcset="..." sizes="90vw" />
+    <source type="image/png" srcset="..." sizes="90vw" />
+    <img
+      class="img-my-class"
+      loading="eager"
+      src="..."
+      alt="Image alt"
+      width="100"
+      height="100"
+    />
   </picture>
   <figcaption>Image title</figcaption>
 </figure>
 ```
-___
+
+---
+
 </details>
 
 <details>
@@ -124,12 +177,12 @@ ___
 Embed markdown easily.
 
 ```html
-{% markdown %}
-Let's you use **Markdown** like _this_.
-Or with includes {%- include 'content.md' -%}.
-{% endmarkdown %}
+{% markdown %} Let's you use **Markdown** like _this_. Or with includes {%-
+include 'content.md' -%}. {% endmarkdown %}
 ```
-___
+
+---
+
 </details>
 
 ## Filters
@@ -148,7 +201,9 @@ Format the passed date with [date-fns](https://date-fns.org/v2.16.1/docs/format)
 <!-- Will be rendered as -->
 2020
 ```
-___
+
+---
+
 </details>
 
 <details>
@@ -163,7 +218,9 @@ Format the passed date according to [ISO format](https://date-fns.org/v2.16.1/do
 <!-- Will be rendered as -->
 2020-09-18T19:00:52Z
 ```
-___
+
+---
+
 </details>
 
 <details>
@@ -178,7 +235,9 @@ Parse the passed string with markdown:
 <!-- Will be rendered as -->
 <h1>My header</h1>
 ```
-___
+
+---
+
 </details>
 
 ## Thanks
